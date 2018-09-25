@@ -9,6 +9,7 @@ protected:
     int attempts;
     std::string word;
     bool alive;
+    std::string field;
 
 public:
 
@@ -19,7 +20,9 @@ public:
     int getAttempts();
     bool isAlive();
     std::string renderField();
-    bool guess(const char *letter);
+    void generateField();
+    std::string getField();
+    bool guess(char *letter);
 };
 
 
