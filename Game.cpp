@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <sstream>
 
 Game::Game(const std::string &word, const int attempts) {
     this->word = word;
@@ -20,4 +21,22 @@ bool Game::isAlive() {
 
 bool Game::guess(const char *letter) {
 
+}
+
+std::string Game::renderField() {
+    std::stringstream field;
+
+    field << "Player: " << this->player << std::endl;
+    field << "Word length: " << this->word.length() << std::endl;
+    field << "Attempts: " << this->attempts << std::endl;
+
+    for (int i = 0; i < this->word.length(); i++) {
+        if (this->word[i] == ' ') {
+            field << " ";
+        } else {
+            field << "_";
+        }
+    }
+    field << std::endl;
+    return field.str();
 }

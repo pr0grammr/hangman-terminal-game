@@ -1,9 +1,9 @@
 #ifndef HANGMAN_TERMINAL_GAME_GAME_H
 #define HANGMAN_TERMINAL_GAME_GAME_H
 
-#include "Field.h"
+#include <string>
 
-class Game : public Field {
+class Game {
 
 protected:
     int attempts;
@@ -18,6 +18,7 @@ public:
     std::string getWord();
     int getAttempts();
     bool isAlive();
+    std::string renderField();
     bool guess(const char *letter);
 };
 
