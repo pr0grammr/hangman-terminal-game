@@ -2,8 +2,16 @@
 #include <sstream>
 #include <locale>
 
+
 Game::Game(const std::string &word, const int attempts) {
     this->word = word;
+    this->attempts = attempts;
+    this->alive = true;
+
+    this->generateField();
+}
+
+Game::Game(const int attempts) {
     this->attempts = attempts;
     this->alive = true;
 

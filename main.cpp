@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "Game.h"
 
@@ -6,8 +7,69 @@ using namespace std;
 
 int main() {
 
-    // initialize the game; set word and attempts
-    Game hangman("Random Word", 10);
+    // create random list vector for EN
+    vector<string> wordlist = {
+            "two",
+            "accident",
+            "information",
+            "lake",
+            "committee",
+            "literature",
+            "marketing",
+            "girlfriend",
+            "employer",
+            "contribution",
+            "imagination",
+            "bedroom",
+            "distribution",
+            "vehicle",
+            "ratio",
+            "guidance",
+            "grandmother",
+            "environment",
+            "loss",
+            "event",
+            "cabinet",
+            "bath",
+            "director",
+            "membership",
+            "history",
+            "requirement",
+            "collection",
+            "woman",
+            "judgment",
+            "weakness",
+            "photo",
+            "tongue",
+            "depth",
+            "poetry",
+            "magazine",
+            "dinner",
+            "mood",
+            "variation",
+            "delivery",
+            "country",
+            "funeral",
+            "situation",
+            "system",
+            "physics",
+            "pizza",
+            "river",
+            "maintenance",
+            "highway",
+            "road",
+            "fact"
+    };
+
+    // picking random word from wordlist
+    short min, max, randNum;
+    min = 0;
+    max = wordlist.size() - 1;
+    randNum = rand() % max + min;
+
+    // initialize the game; set attempts
+    Game hangman(wordlist[randNum], 10);
+
 
     // print intro message
     cout << "Welcome to Hangman, the terminal based Game!" << endl;
@@ -43,7 +105,7 @@ int main() {
             cout << "Nice! The letter '" << letter << "' is in the word!" << endl << endl;
             cout << hangman.renderField() << endl;
         } else {
-            cout << "This letter is not in the word. You got " << hangman.getAttempts() << " left." << endl;
+            cout << "This letter is not in the word. You got " << hangman.getAttempts() << " attempts left." << endl;
             cout << hangman.renderField() << endl;
         }
     }

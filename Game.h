@@ -2,6 +2,7 @@
 #define HANGMAN_TERMINAL_GAME_GAME_H
 
 #include <string>
+#include <vector>
 
 class Game {
 
@@ -16,6 +17,7 @@ public:
     std::string player;
 
     Game(const std::string &word, const int attempts);
+    Game(const int attempts);
     std::string getWord();
     int getAttempts();
     bool isAlive();
