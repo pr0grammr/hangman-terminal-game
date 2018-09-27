@@ -41,7 +41,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local/bin" TYPE EXECUTABLE FILES "/Users/snak3/Repositories/hangman-terminal-game/bin/hangman")
+file(INSTALL DESTINATION "/usr/local/bin" TYPE EXECUTABLE FILES "/Users/snak3/Repositories/hangman-terminal-game/build/hangman")
   if(EXISTS "$ENV{DESTDIR}/usr/local/bin/hangman" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/bin/hangman")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -58,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/snak3/Repositories/hangman-terminal-game/bin/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/snak3/Repositories/hangman-terminal-game/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

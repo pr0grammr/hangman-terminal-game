@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/snak3/Repositories/hangman-terminal-game/Game.cpp
+Game.h
+/Users/snak3/Repositories/hangman-terminal-game/Game.h
+sstream
+-
+locale
+-
+
+/Users/snak3/Repositories/hangman-terminal-game/Game.h
+string
+-
+vector
+-
+
+/Users/snak3/Repositories/hangman-terminal-game/main.cpp
+iostream
+-
+cstdlib
+-
+random
+-
+Game.h
+/Users/snak3/Repositories/hangman-terminal-game/Game.h
+
