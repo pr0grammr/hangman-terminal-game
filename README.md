@@ -19,3 +19,6 @@ $ make install
 
 After you installed the binary, just type `hangman` in your terminal and the game starts. 
 
+## ToDo
+
+* pretty output
