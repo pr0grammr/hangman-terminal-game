@@ -15,6 +15,8 @@ $ make
 $ make install
 ```
 
+Or you can use the compiled binary in the `build` directory.
+
 ## Usage
 
 After you installed the binary, just type `hangman` in your terminal and the game starts. 
