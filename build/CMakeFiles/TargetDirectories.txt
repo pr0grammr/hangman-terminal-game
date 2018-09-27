@@ -1,0 +1,7 @@
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/install/local.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/install/strip.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/install.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/list_install_components.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/rebuild_cache.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/edit_cache.dir
+/Users/snak3/Repositories/hangman-terminal-game/bin/CMakeFiles/hangman.dir
