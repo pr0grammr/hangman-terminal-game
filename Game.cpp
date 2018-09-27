@@ -27,6 +27,10 @@ int Game::getAttempts() {
 }
 
 bool Game::isAlive() {
+    // check if word is already guessed right
+    if (this->attempts == 0 || this->word == this->field) {
+        this->alive = false;
+    }
     return this->alive;
 }
 
@@ -65,10 +69,6 @@ bool Game::guess(char *letter) {
         }
     }
 
-    // check if word is already guessed right
-    if (this->attempts == 0 || this->word == this->field) {
-        this->alive = false;
-    }
     if (!found) {
         this->attempts--;
     }

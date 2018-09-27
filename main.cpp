@@ -89,13 +89,6 @@ int main() {
 
     while (hangman.isAlive()) {
 
-        // check if user have attepts left
-        if (hangman.getAttempts() == 0) {
-            cout << "GAME OVER! You have no attempts left!" << endl;
-            cout << "The right word was '" << hangman.getWord() << "'" << endl;
-            break;
-        }
-
         char letter;
         cout << "Type a letter: ";
         cin >> letter;
@@ -117,6 +110,12 @@ int main() {
     // give success message to user
     if (hangman.getWord() == hangman.getField()) {
         cout << "Congrats! You made it :)" << endl;
+    }
+
+    // check if user have attepts left
+    if (hangman.getAttempts() == 0) {
+        cout << "GAME OVER! You have no attempts left!" << endl;
+        cout << "The right word was '" << hangman.getWord() << "'" << endl;
     }
 
 
