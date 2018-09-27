@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <random>
 
 #include "Game.h"
 
@@ -62,13 +63,15 @@ int main() {
     };
 
     // picking random word from wordlist
-    short min, max, randNum;
-    min = 0;
-    max = wordlist.size() - 1;
-    randNum = rand() % max + min;
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> dist(0, (int)wordlist.size() - 1);
+
+    int randomNum = dist(mt);
+
 
     // initialize the game; set attempts
-    Game hangman(wordlist[randNum], 10);
+    Game hangman(wordlist[randomNum], 10);
 
 
     // print intro message
@@ -90,6 +93,7 @@ int main() {
         if (hangman.getAttempts() == 0) {
             cout << "GAME OVER! You have no attempts left!" << endl;
             cout << "The right word was '" << hangman.getWord() << "'" << endl;
+            break;
         }
 
         char letter;
