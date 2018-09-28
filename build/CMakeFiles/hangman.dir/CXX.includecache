@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/snak3/Repositories/hangman-terminal-game/Colors.h
+string
+-
+
 /Users/snak3/Repositories/hangman-terminal-game/Game.cpp
 Game.h
 /Users/snak3/Repositories/hangman-terminal-game/Game.h
@@ -13,12 +17,18 @@ sstream
 -
 locale
 -
+iterator
+-
+algorithm
+-
 
 /Users/snak3/Repositories/hangman-terminal-game/Game.h
 string
 -
 vector
 -
+Colors.h
+/Users/snak3/Repositories/hangman-terminal-game/Colors.h
 
 /Users/snak3/Repositories/hangman-terminal-game/main.cpp
 iostream
