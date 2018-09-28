@@ -86,6 +86,7 @@ int main() {
     colors.bg_green = "\033[42;m";
     colors.bg_red = "\033[41;m";
     colors.bg_blue = "\033[44;m";
+    colors.none = "\033[0;m";
 
     hangman.colors = colors;
 
@@ -116,17 +117,17 @@ int main() {
          * print the field again
          */
         if (hangman.alreadyGuessed(&letter)) {
-            cout << hangman.colors.bg_blue << "You already guessed the letter '" << letter << "'. You still got " << hangman.attempts << " attempts left." << endl;
+            cout << hangman.colors.bg_blue << "You already guessed the letter '" << letter << "'. You still got " << hangman.attempts << " attempts left." << hangman.colors.none << endl;
             cout << hangman.renderField() << endl;
             continue;
         }
 
         if (hangman.guess(&letter)) {
-            cout << hangman.colors.bg_green << "Nice! The letter '" << letter << "' is in the word!" << endl;
+            cout << hangman.colors.bg_green << "Nice! The letter '" << letter << "' is in the word!" << hangman.colors.none << endl;
             cout << hangman.renderField() << endl;
         } else {
             hangman.attempts--;
-            cout << hangman.colors.bg_red << "The letter '" << letter << "' is not in the word. You got " << hangman.attempts << " attempts left." << endl;
+            cout << hangman.colors.bg_red << "The letter '" << letter << "' is not in the word. You got " << hangman.attempts << " attempts left." << hangman.colors.none << endl;
             cout << hangman.renderField() << endl;
         }
     }

@@ -15,6 +15,7 @@ struct Colors {
     std::string bg_green;
     std::string bg_red;
     std::string bg_blue;
+    std::string none;
 };
 
 #endif
