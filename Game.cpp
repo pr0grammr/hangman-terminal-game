@@ -1,12 +1,15 @@
 #include "Game.h"
 #include <sstream>
 #include <locale>
+#include <iterator>
+#include <algorithm>
 
 
 Game::Game(const std::string &word, const int attempts) {
     this->word = word;
     this->attempts = attempts;
     this->alive = true;
+    this->whitespaces = 0;
 
     this->generateField();
 }
@@ -38,6 +41,7 @@ void Game::generateField() {
     for (int i = 0; i < this->word.length(); i++) {
         if (this->word[i] == ' ') {
             this->field += " ";
+            this->whitespaces++;
         } else {
             this->field += "_";
         }
@@ -57,6 +61,7 @@ bool Game::guess(char *letter) {
     }
 
     *letter = std::tolower(*letter, loc);
+    this->guessedLetters.push_back(*letter);
 
     /**
      * iterate over each letter and check if the letter is equal to the user's one
@@ -69,10 +74,6 @@ bool Game::guess(char *letter) {
         }
     }
 
-    if (!found) {
-        this->attempts--;
-    }
-
     return found;
 }
 
@@ -80,8 +81,9 @@ std::string Game::renderField() {
     std::stringstream field;
 
     field << "PLAYER: " << this->player << std::endl;
-    field << "WORD LENGTH: " << this->word.length() << std::endl;
+    field << "WORD LENGTH: " << this->getWordlength() << std::endl;
     field << "ATTEMPTS: " << this->attempts << std::endl;
+    field << "GUESSED LETTERS: " << this->getGuessesLetters() << std::endl;
 
     field << std::endl;
 
@@ -89,4 +91,34 @@ std::string Game::renderField() {
 
     field << std::endl;
     return field.str();
+}
+
+bool Game::alreadyGuessed(const char* letter) {
+    if (std::find(this->guessedLetters.begin(), this->guessedLetters.end(), *letter) != this->guessedLetters.end()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+std::string Game::getGuessesLetters() {
+    std::stringstream letters;
+
+    for (int i = 0; i < this->guessedLetters.size(); i++) {
+        if (i == this->guessedLetters.size() - 1) {
+            if (this->alreadyGuessed(&this->guessedLetters[i])) {
+                letters << this->guessedLetters[i];
+            }
+        } else {
+            if (this->alreadyGuessed(&this->guessedLetters[i])) {
+                letters << this->guessedLetters[i] << ", ";
+            }
+        }
+    }
+
+    return letters.str();
+}
+
+short Game::getWordlength() {
+    return (short)this->word.length() - this->whitespaces;
 }

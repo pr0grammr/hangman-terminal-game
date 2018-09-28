@@ -24,4 +24,3 @@ After you installed the binary, just type `hangman` in your terminal and the gam
 ## ToDo
 
 * pretty output
-* subtract number of spaces from wordlength

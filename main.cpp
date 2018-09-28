@@ -94,15 +94,23 @@ int main() {
         cin >> letter;
 
         /**
+         * check if user already guessed the letter
          * call guess method
          * check if user guessed a right letter
          * print the field again
          */
+        if (hangman.alreadyGuessed(&letter)) {
+            cout << "You already guessed the letter '" << letter << "'. You already got " << hangman.attempts << " attempts left." << endl;
+            cout << hangman.renderField() << endl;
+            continue;
+        }
+
         if (hangman.guess(&letter)) {
             cout << "Nice! The letter '" << letter << "' is in the word!" << endl << endl;
             cout << hangman.renderField() << endl;
         } else {
-            cout << "This letter is not in the word. You got " << hangman.getAttempts() << " attempts left." << endl;
+            hangman.attempts--;
+            cout << "This letter is not in the word. You got " << hangman.attempts << " attempts left." << endl;
             cout << hangman.renderField() << endl;
         }
     }

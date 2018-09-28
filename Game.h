@@ -7,13 +7,15 @@
 class Game {
 
 protected:
-    int attempts;
     std::string word;
     bool alive;
     std::string field;
+    short whitespaces;
+    std::vector<char> guessedLetters;
 
 public:
 
+    int attempts;
     std::string player;
 
     Game(const std::string &word, const int attempts);
@@ -25,6 +27,9 @@ public:
     void generateField();
     std::string getField();
     bool guess(char *letter);
+    std::string getGuessesLetters();
+    short getWordlength();
+    bool alreadyGuessed(const char *letter);
 };
 
 
