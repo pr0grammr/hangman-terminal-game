@@ -80,10 +80,10 @@ bool Game::guess(char *letter) {
 std::string Game::renderField() {
     std::stringstream field;
 
-    field << "PLAYER: " << this->player << std::endl;
-    field << "WORD LENGTH: " << this->getWordlength() << std::endl;
-    field << "ATTEMPTS: " << this->attempts << std::endl;
-    field << "GUESSED LETTERS: " << this->getGuessesLetters() << std::endl;
+    field << this->colors.cyan << this->colors.bold << "PLAYER: " << this->colors.white << this->player << std::endl;
+    field << this->colors.blue << this->colors.bold << "WORD LENGTH: " << this->colors.white << this->getWordlength() << std::endl;
+    field << this->colors.magenta << this->colors.bold << "ATTEMPTS: " << this->colors.white << this->attempts << std::endl;
+    field << this->colors.green << this->colors.bold << "GUESSED LETTERS: " << this->colors.white << this->getGuessesLetters() << std::endl;
 
     field << std::endl;
 

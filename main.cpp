@@ -73,6 +73,22 @@ int main() {
     // initialize the game; set attempts
     Game hangman(wordlist[randomNum], 10);
 
+    // set colors for output
+    struct Colors colors;
+    colors.red = "\033[31;m";
+    colors.green = "\033[32;m";
+    colors.blue = "\033[34;m";
+    colors.white = "\033[37;m";
+    colors.bold = "\033[1;m";
+    colors.magenta = "\033[35;m";
+    colors.cyan = "\033[36;m";
+    colors.yellow = "\033[33;m";
+    colors.bg_green = "\033[42;m";
+    colors.bg_red = "\033[41;m";
+    colors.bg_blue = "\033[44;m";
+
+    hangman.colors = colors;
+
 
     // print intro message
     cout << "Welcome to Hangman, the terminal based Game!" << endl;
@@ -100,17 +116,17 @@ int main() {
          * print the field again
          */
         if (hangman.alreadyGuessed(&letter)) {
-            cout << "You already guessed the letter '" << letter << "'. You already got " << hangman.attempts << " attempts left." << endl;
+            cout << hangman.colors.bg_blue << "You already guessed the letter '" << letter << "'. You still got " << hangman.attempts << " attempts left." << endl;
             cout << hangman.renderField() << endl;
             continue;
         }
 
         if (hangman.guess(&letter)) {
-            cout << "Nice! The letter '" << letter << "' is in the word!" << endl << endl;
+            cout << hangman.colors.bg_green << "Nice! The letter '" << letter << "' is in the word!" << endl;
             cout << hangman.renderField() << endl;
         } else {
             hangman.attempts--;
-            cout << "This letter is not in the word. You got " << hangman.attempts << " attempts left." << endl;
+            cout << hangman.colors.bg_red << "The letter '" << letter << "' is not in the word. You got " << hangman.attempts << " attempts left." << endl;
             cout << hangman.renderField() << endl;
         }
     }

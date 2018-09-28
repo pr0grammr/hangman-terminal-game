@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Colors.h"
 
 class Game {
 
@@ -17,6 +18,7 @@ public:
 
     int attempts;
     std::string player;
+    struct Colors colors;
 
     Game(const std::string &word, const int attempts);
     Game(const int attempts);
