@@ -8,7 +8,7 @@ If you don't know the game, have a look <a href="https://en.wikipedia.org/wiki/H
 You'll need `make` and `cmake`. 
 
 ```bash
-$ git clone https://github.com/sawzcode/hangman-terminal-game.git
+$ git clone https://github.com/pr0grammr/hangman-terminal-game.git
 $ cd hangman-terminal-game
 $ cmake .
 $ make
